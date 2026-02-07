@@ -85,12 +85,14 @@ sidebarIcons.forEach(icon => {
     // Add 'active' to clicked icon
     icon.classList.add('active');
 
-    // Show/hide content
-    switchContent(icon.title);
+    // Only hide/show content in mobile view
+    if(window.innerWidth <= 768){
+      switchContent(icon.title);
+    }
   });
 });
 
-// Switch content function
+// Switch content function for mobile only
 function switchContent(title){
   const mainContent = document.querySelector('main');
   const cartContent = document.querySelector('.cart');
@@ -113,5 +115,10 @@ function switchContent(title){
 // ====================
 renderProducts('Pizza'); // default category
 sidebarIcons.forEach(i => i.classList.remove('active')); // clear all
-document.querySelector('.sidebar .nav li[title="Menu"]').classList.add('active'); // set default
-switchContent('Menu'); // show menu by default
+document.querySelector('.sidebar .nav li[title="Menu"]').classList.add('active'); // default active
+
+// Desktop view always shows both
+if(window.innerWidth > 768){
+  document.querySelector('main').style.display = 'flex';
+  document.querySelector('.cart').style.display = 'flex';
+}
