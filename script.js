@@ -1,3 +1,6 @@
+// ====================
+// Product & Cart Setup
+// ====================
 let cart = [];
 let products = [
   {name:"Pepperoni Pizza", category:"Pizza", price:250, available:true, image:"https://via.placeholder.com/150"},
@@ -15,7 +18,10 @@ function renderProducts(category){
     div.innerHTML = `<img src="${p.image}" alt="${p.name}"><h3>${p.name}</h3><p>₱${p.price}</p>`;
     const btn = document.createElement('button');
     btn.textContent = "Add";
-    btn.addEventListener('click', ()=>{ cart.push(p); updateCart(); });
+    btn.addEventListener('click', ()=>{ 
+      cart.push(p); 
+      updateCart(); 
+    });
     div.appendChild(btn);
     menu.appendChild(div);
   });
@@ -30,13 +36,13 @@ document.querySelectorAll('.category').forEach(btn=>{
   });
 });
 
-// Update cart
+// Update cart UI
 function updateCart(){
   const cartItems = document.getElementById('cartItems');
   cartItems.innerHTML = '';
   let subtotal = 0;
   cart.forEach((item,index)=>{
-    subtotal+=item.price;
+    subtotal += item.price;
     const li = document.createElement('li');
     li.textContent = `${item.name} - ₱${item.price}`;
     const removeBtn = document.createElement('button');
@@ -54,7 +60,21 @@ function updateCart(){
   document.getElementById('cartTotal').textContent = (subtotal+tax).toFixed(2);
 }
 
-// Sidebar / Bottom bar active icon
+// Place order button
+document.getElementById('placeOrderBtn').addEventListener('click', ()=>{
+  const customer = prompt("Enter your name:");
+  if(!customer || cart.length === 0){
+    alert("Name required and cart cannot be empty!");
+    return;
+  }
+  alert(`Order placed for ${customer}!`);
+  cart = [];
+  updateCart();
+});
+
+// ====================
+// Sidebar / Bottom Bar Active Icon
+// ====================
 const sidebarIcons = document.querySelectorAll('.sidebar .nav li');
 
 sidebarIcons.forEach(icon => {
@@ -65,7 +85,7 @@ sidebarIcons.forEach(icon => {
     // Add 'active' to clicked icon
     icon.classList.add('active');
 
-    // Show/hide sections based on clicked icon
+    // Show/hide content
     switchContent(icon.title);
   });
 });
@@ -82,14 +102,16 @@ function switchContent(title){
     mainContent.style.display = 'none';
     cartContent.style.display = 'flex';
   } else {
-    // For Orders or Account you can add later
+    // For Orders or Account (can customize later)
     mainContent.style.display = 'flex';
     cartContent.style.display = 'none';
   }
 }
 
-// Default render
-renderProducts('Pizza');
-
-// Default sidebar state
-switchContent('Menu');
+// ====================
+// Initialization
+// ====================
+renderProducts('Pizza'); // default category
+sidebarIcons.forEach(i => i.classList.remove('active')); // clear all
+document.querySelector('.sidebar .nav li[title="Menu"]').classList.add('active'); // set default
+switchContent('Menu'); // show menu by default
