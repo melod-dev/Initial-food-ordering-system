@@ -47,7 +47,7 @@ body, html {
 }
 /* Hide cart icon on desktop */
 .sidebar .cart-icon {
-  display: none !important;
+  display: none;
 }
 
 /* Main */
@@ -186,11 +186,11 @@ main {
     gap: 0.2rem;
   }
 /* Show Cart icon on mobile */
-  @media (max-width: 768px) {
   .sidebar .cart-icon {
-    display: flex;
+    display: block;
   }
 }
+
 
 
 
