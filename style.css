@@ -33,6 +33,17 @@ body, html {
 .sidebar .nav li.active {
   color: orange;
 }
+/* Hide cart icon on desktop */
+.sidebar .cart-icon {
+  display: none;
+}
+
+/* Show cart icon on mobile */
+@media(max-width: 768px) {
+  .sidebar .cart-icon {
+    display: block;
+  }
+}
 
 /* Main */
 main {
@@ -135,18 +146,6 @@ main {
   background: orange;
 }
 
-/* Hide cart icon on desktop */
-.sidebar .cart-icon {
-  display: none;
-}
-
-/* Show cart icon on mobile */
-@media(max-width: 768px) {
-  .sidebar .cart-icon {
-    display: block;
-  }
-}
-
 /* Mobile view */
 @media(max-width: 768px) {
   .container {
@@ -175,4 +174,5 @@ main {
     font-size: 1.5rem;
   }
 }
+
 
