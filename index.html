@@ -4,42 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Food Kiosk</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- CSS -->
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-  <!-- Left Sidebar -->
+  <!-- Sidebar / Bottom bar -->
   <aside class="sidebar">
-    <div class="logo">🍔 Kiosk</div>
     <ul class="nav">
-      <li class="active">Menu</li>
-      <li>Orders</li>
-      <li>Settings</li>
-      <li>Logout</li>
+      <li class="active" title="Menu"><i class="fas fa-bars"></i></li>
+      <li title="Cart"><i class="fas fa-shopping-cart"></i></li>
+      <li title="Orders"><i class="fas fa-clipboard-list"></i></li>
+      <li title="Account"><i class="fas fa-user"></i></li>
     </ul>
   </aside>
 
   <!-- Main Content -->
   <main>
-    <!-- Top Bar -->
     <div class="topbar">
-      <input type="text" placeholder="Search product by name, categories or SKU" id="searchInput">
-      <button class="filter-btn">Filter</button>
+      <input type="text" placeholder="Search product..." id="searchInput">
     </div>
 
-    <!-- Category Tabs -->
     <div class="categories">
       <button class="category active" data-category="Pizza">Pizza</button>
-      <button class="category" data-category="Hot drinks">Hot Drinks</button>
-      <button class="category" data-category="Cold drinks">Cold Drinks</button>
-      <button class="category" data-category="Dessert">Dessert</button>
       <button class="category" data-category="Burgers">Burgers</button>
+      <button class="category" data-category="Dessert">Dessert</button>
     </div>
 
-    <!-- Product Grid -->
-    <div id="menu" class="product-grid"></div>
+    <div id="menu" class="product-grid">
+      <!-- Products will be injected here -->
+    </div>
   </main>
 
   <!-- Cart Summary -->
@@ -51,12 +51,12 @@
       <p>Tax(5%): ₱<span id="cartTax">0</span></p>
       <p>Total: ₱<span id="cartTotal">0</span></p>
     </div>
-    <button id="printReceipt">Print Receipt</button>
-    <button id="placeOrderBtn">Proceed</button>
+    <button id="placeOrderBtn">Place Order</button>
   </aside>
 
 </div>
 
+<!-- JS -->
 <script src="script.js"></script>
 </body>
 </html>
