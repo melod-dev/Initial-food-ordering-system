@@ -47,7 +47,7 @@ body, html {
 }
 /* Hide cart icon on desktop */
 .sidebar .cart-icon {
-  display: none;
+  display: none !important;
 }
 
 /* Main */
@@ -191,6 +191,7 @@ main {
     display: flex;
   }
 }
+
 
 
 
