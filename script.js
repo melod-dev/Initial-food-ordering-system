@@ -1,4 +1,4 @@
-const API = "https://script.google.com/macros/s/AKfycbxLjaL8kS3nRiNRbFyDS0PhookpaL6abJ8vZBgqEG2Md0ViMQ86ZpOqZ3mIAkRp8cvs8A/exec";
+const API = "https://script.google.com/macros/s/AKfycbzumHbzqYkEv1073OwmyXBhwDqoIjd5SHbMfkxZxoFzpMZevIkEdYeeJyWUDscRMges/exec";
 
 let cart = [];
 let products = [];
@@ -95,3 +95,4 @@ document.getElementById('placeOrderBtn').addEventListener('click', () => {
     updateCart();
   });
 });
+
