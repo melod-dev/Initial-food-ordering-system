@@ -154,15 +154,17 @@ main {
 
   /* Sidebar becomes bottom bar */
   .sidebar {
-    width: 100%;
+    width: 95%; /* leave small space from sides */
     flex-direction: row;
     justify-content: space-around;
     padding: 0.5rem 0;
     order: 3; /* moves to bottom */
-    border-top: 1px solid #333;
+    border-top: none;          /* optional, remove sharp top line */
     position: sticky;
     bottom: 0;
-    background: #121212;
+    background: #333;
+    border-radius: 16px;       /* rounded edges for mobile */
+    margin: 0.5rem auto;       /* center it with horizontal margin */
   }
 
   .sidebar .nav li {
@@ -174,6 +176,7 @@ main {
     display: block;
   }
 }
+
 
 
 
