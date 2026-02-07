@@ -15,14 +15,14 @@ body, html {
 /* Sidebar */
 .sidebar {
   width: 70px;
-  background: #2a2a2a; 
+  background: #2a2a2a; /* grey background */
   display: flex;
-  justify-content: flex-start;   /* move items to the top */
-  align-items: center;       /* center vertically */
-  padding: 2rem 0 1rem 0;     /*top padding 2rem, bottom 1rem*/
-  border-radius: 16px;       /* rounded edges */
-  margin: 0.5rem;            /* spacing from window edges */
-  flex-direction: column;    /* stack icons vertically */
+  justify-content: flex-start;   /* icons at top */
+  align-items: flex-start;       /* icons start from top */
+  padding: 1rem 0;
+  border-radius: 16px;       
+  margin: 0.5rem;            
+  flex-direction: column;    
 }
 
 .sidebar .nav {
@@ -31,9 +31,9 @@ body, html {
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* center icons vertically in sidebar */
-  align-items: center;       /* center icons horizontally */
-  gap: 2rem;                 /* spacing between icons */
+  justify-content: flex-start;   
+  align-items: center;      
+  gap: 2rem;                 
 }
 
 .sidebar .nav li {
@@ -42,8 +42,8 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;         /* icon size */
-  flex-direction: column;    /* in case text is added under icon */
+  font-size: 1.6rem;         
+  flex-direction: column;    
   transition: color 0.2s;
 }
 
@@ -52,7 +52,7 @@ body, html {
 }
 
 .sidebar .nav li:hover {
-  color: #ff9800; /* subtle hover effect */
+  color: #ff9800; 
 }
 
 /* Hide cart icon on desktop */
@@ -66,6 +66,7 @@ main {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  min-height: 100%;
 }
 
 /* Topbar */
@@ -109,7 +110,7 @@ main {
 
 .product-card {
   background: #2a2a2a;
-  border-radius: 16px; /* fully rounded edges */
+  border-radius: 16px;   /* fully rounded edges */
   padding: 1rem;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -124,7 +125,7 @@ main {
   background: orange;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 16px;
+  border-radius: 16px;   /* fully rounded button */
   cursor: pointer;
   font-weight: bold;
 }
@@ -137,7 +138,7 @@ main {
   display: flex;
   flex-direction: column;
   border-left: 1px solid #333;
-  border-radius: 16px;
+  border-radius: 16px;  /* fully rounded */
 }
 
 .cart ul {
@@ -156,7 +157,7 @@ main {
   margin-top: 0.5rem;
   padding: 0.7rem;
   border: none;
-  border-radius: 16px;
+  border-radius: 16px;  /* fully rounded */
   cursor: pointer;
   font-weight: bold;
   background: orange;
@@ -166,6 +167,7 @@ main {
 @media(max-width: 768px) {
   .container {
     flex-direction: column;
+    padding-bottom: 80px; /* space for fixed bottom bar */
   }
 
   main, .cart {
@@ -175,19 +177,18 @@ main {
 
   /* Sidebar becomes bottom bar */
   .sidebar {
-    width: 95%; 
+    width: 95%;
     flex-direction: row;
     justify-content: space-around;
     padding: 0.6rem 0;
-    order: 3; 
-    position: fixed;
+    position: fixed;   /* always fixed */
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%); /* center horizontally */
-    border-radius: 16px;      
-    margin: 0.5rem auto;      
+    transform: translateX(-50%);
+    border-radius: 16px;
+    margin: 0;
     background: #2a2a2a;
-    z-index: 1000;         /* stay above other content */
+    z-index: 1000;
   }
 
   .sidebar .nav {
@@ -199,7 +200,7 @@ main {
   }
 
   .sidebar .nav li {
-    flex-direction: column;   /* icons vertical */
+    flex-direction: column;   
     font-size: 1.4rem;
     gap: 0.2rem;
   }
@@ -208,17 +209,4 @@ main {
   .mobile-only {
     display: flex !important;
   }
-
-  /* Hide cart content inside menu on mobile */
-  main.show-cart-desktop + .cart {
-    display: none !important;
-  }
 }
-
-/* Desktop always show cart */
-@media(min-width: 769px) {
-  .cart {
-    display: flex !important;
-  }
-}
-
