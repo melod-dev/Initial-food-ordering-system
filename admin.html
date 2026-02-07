@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+</head>
+<body>
+
+<h1>Orders</h1>
+<div id="orders"></div>
+
+<script>
+const API = "https://script.google.com/macros/s/AKfycbxLjaL8kS3nRiNRbFyDS0PhookpaL6abJ8vZBgqEG2Md0ViMQ86ZpOqZ3mIAkRp8cvs8A/exec";
+
+function loadOrders() {
+  fetch(`${API}?action=orders`)
+    .then(res => res.json())
+    .then(data => {
+      const div = document.getElementById("orders");
+      div.innerHTML = "";
+      data.forEach(o => {
+        div.innerHTML += `
+          <p>
+            ${o[1]} - ${o[4]}
+            <button onclick="update('${o[0]}','Preparing')">Preparing</button>
+            <button onclick="update('${o[0]}','Ready')">Ready</button>
+          </p>
+        `;
+      });
+    });
+}
+
+function update(id, status) {
+  fetch(API, {
+    method: "POST",
+    body: JSON.stringify({
+      action: "updateStatus",
+      order_id: id,
+      status
+    })
+  }).then(loadOrders);
+}
+
+setInterval(loadOrders, 3000);
+</script>
+</body>
+</html>
