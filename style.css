@@ -15,11 +15,11 @@ body, html {
 /* Sidebar */
 .sidebar {
   width: 70px;
-  background: #2a2a2a; /* grey background */
+  background: #2a2a2a; 
   display: flex;
-  justify-content: center;   /* center horizontally */
+  justify-content: flex-start;   /* move items to the top */
   align-items: center;       /* center vertically */
-  padding: 1rem 0;
+  padding: 2rem 0 1rem 0;     /*top padding 2rem, bottom 1rem*/
   border-radius: 16px;       /* rounded edges */
   margin: 0.5rem;            /* spacing from window edges */
   flex-direction: column;    /* stack icons vertically */
@@ -180,11 +180,14 @@ main {
     justify-content: space-around;
     padding: 0.6rem 0;
     order: 3; 
-    position: sticky;
+    position: fixed;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* center horizontally */
     border-radius: 16px;      
     margin: 0.5rem auto;      
     background: #2a2a2a;
+    z-index: 1000;         /* stay above other content */
   }
 
   .sidebar .nav {
@@ -218,3 +221,4 @@ main {
     display: flex !important;
   }
 }
+
