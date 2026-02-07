@@ -77,14 +77,12 @@ document.getElementById('placeOrderBtn').addEventListener('click', ()=>{
 // ====================
 const sidebarIcons = document.querySelectorAll('.sidebar .nav li');
 
-sidebarIcons.forEach(icon => {
-  icon.addEventListener('click', () => {
+sidebarIcons.forEach(icon=>{
+  icon.addEventListener('click', ()=>{
     // Remove 'active' from all icons
-    sidebarIcons.forEach(i => i.classList.remove('active'));
-
+    sidebarIcons.forEach(i=>i.classList.remove('active'));
     // Add 'active' to clicked icon
     icon.classList.add('active');
-
     // Show/hide content
     switchContent(icon.title);
   });
@@ -97,38 +95,20 @@ function switchContent(title){
 
   if(title === 'Menu'){
     mainContent.style.display = 'flex';
-    
-    // Show cart on desktop only
-    if(window.innerWidth >= 769){
-      cartContent.style.display = 'flex';
-      mainContent.classList.add('show-cart-desktop');
-    } else {
-      cartContent.style.display = 'none';
-      mainContent.classList.remove('show-cart-desktop');
-    }
-
+    cartContent.style.display = window.innerWidth <= 768 ? 'none' : 'flex'; // show total in desktop
   } else if(title === 'Cart'){
     mainContent.style.display = 'none';
     cartContent.style.display = 'flex';
   } else {
-    // For Orders or Account
     mainContent.style.display = 'flex';
-    cartContent.style.display = 'none';
+    cartContent.style.display = window.innerWidth <= 768 ? 'none' : 'flex';
   }
 }
-
-// Update on window resize to adjust cart visibility
-window.addEventListener('resize', () => {
-  const menuActive = document.querySelector('.sidebar .nav li[title="Menu"].active');
-  if(menuActive){
-    switchContent('Menu');
-  }
-});
 
 // ====================
 // Initialization
 // ====================
-renderProducts('Pizza'); // default category
-sidebarIcons.forEach(i => i.classList.remove('active'));
+renderProducts('Pizza'); 
+sidebarIcons.forEach(i=>i.classList.remove('active'));
 document.querySelector('.sidebar .nav li[title="Menu"]').classList.add('active');
 switchContent('Menu');
