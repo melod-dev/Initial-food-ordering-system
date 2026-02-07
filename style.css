@@ -152,7 +152,7 @@ main {
 }
 
 /* Mobile view */
-@media(max-width: 768px) {
+@media(max-width: 600px) {
   .container {
     flex-direction: column;
   }
@@ -187,9 +187,10 @@ main {
   }
 /* Show Cart icon on mobile */
   .sidebar .cart-icon {
-    display: block;
+    display: flex;
   }
 }
+
 
 
 
