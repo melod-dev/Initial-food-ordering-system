@@ -5,6 +5,7 @@ let products = [
   {name:"Chocolate Cake", category:"Dessert", price:120, available:true, image:"https://via.placeholder.com/150"}
 ];
 
+// Render products by category
 function renderProducts(category){
   const menu = document.getElementById('menu');
   menu.innerHTML = '';
@@ -20,6 +21,7 @@ function renderProducts(category){
   });
 }
 
+// Category buttons
 document.querySelectorAll('.category').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     document.querySelectorAll('.category').forEach(b=>b.classList.remove('active'));
@@ -28,6 +30,7 @@ document.querySelectorAll('.category').forEach(btn=>{
   });
 });
 
+// Update cart
 function updateCart(){
   const cartItems = document.getElementById('cartItems');
   cartItems.innerHTML = '';
@@ -51,5 +54,42 @@ function updateCart(){
   document.getElementById('cartTotal').textContent = (subtotal+tax).toFixed(2);
 }
 
+// Sidebar / Bottom bar active icon
+const sidebarIcons = document.querySelectorAll('.sidebar .nav li');
+
+sidebarIcons.forEach(icon => {
+  icon.addEventListener('click', () => {
+    // Remove 'active' from all icons
+    sidebarIcons.forEach(i => i.classList.remove('active'));
+
+    // Add 'active' to clicked icon
+    icon.classList.add('active');
+
+    // Show/hide sections based on clicked icon
+    switchContent(icon.title);
+  });
+});
+
+// Switch content function
+function switchContent(title){
+  const mainContent = document.querySelector('main');
+  const cartContent = document.querySelector('.cart');
+
+  if(title === 'Menu'){
+    mainContent.style.display = 'flex';
+    cartContent.style.display = 'none';
+  } else if(title === 'Cart'){
+    mainContent.style.display = 'none';
+    cartContent.style.display = 'flex';
+  } else {
+    // For Orders or Account you can add later
+    mainContent.style.display = 'flex';
+    cartContent.style.display = 'none';
+  }
+}
+
 // Default render
 renderProducts('Pizza');
+
+// Default sidebar state
+switchContent('Menu');
