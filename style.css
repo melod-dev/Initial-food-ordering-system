@@ -109,7 +109,7 @@ main {
 
 .product-card {
   background: #2a2a2a;
-  border-radius: 12px;
+  border-radius: 16px; /* fully rounded edges */
   padding: 1rem;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -124,7 +124,7 @@ main {
   background: orange;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 12px;
+  border-radius: 16px;
   cursor: pointer;
   font-weight: bold;
 }
@@ -137,6 +137,7 @@ main {
   display: flex;
   flex-direction: column;
   border-left: 1px solid #333;
+  border-radius: 16px;
 }
 
 .cart ul {
@@ -155,7 +156,7 @@ main {
   margin-top: 0.5rem;
   padding: 0.7rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
   cursor: pointer;
   font-weight: bold;
   background: orange;
@@ -204,22 +205,16 @@ main {
   .mobile-only {
     display: flex !important;
   }
-  /* =======================
-   Desktop Menu Shows Cart
-   ======================= */
-@media (max-width: 768px) {
-  /* On mobile, cart inside menu is hidden */
+
+  /* Hide cart content inside menu on mobile */
   main.show-cart-desktop + .cart {
     display: none !important;
   }
 }
 
-@media (min-width: 769px) {
-  /* On desktop, cart is always visible when menu is clicked */
+/* Desktop always show cart */
+@media(min-width: 769px) {
   .cart {
     display: flex !important;
   }
 }
-
-}
-
