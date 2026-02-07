@@ -25,7 +25,7 @@ body, html {
 .sidebar .nav li {
   list-style: none;
   margin: 1rem 0;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* icon size */
   cursor: pointer;
   color: #fff;
 }
@@ -36,13 +36,6 @@ body, html {
 /* Hide cart icon on desktop */
 .sidebar .cart-icon {
   display: none;
-}
-
-/* Show cart icon on mobile */
-@media(max-width: 768px) {
-  .sidebar .cart-icon {
-    display: block;
-  }
 }
 
 /* Main */
@@ -157,12 +150,13 @@ main {
     padding: 1rem;
   }
 
+  /* Sidebar becomes bottom bar */
   .sidebar {
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
     padding: 0.5rem 0;
-    order: 3;
+    order: 3; /* moves to bottom */
     border-top: 1px solid #333;
     position: sticky;
     bottom: 0;
@@ -178,5 +172,6 @@ main {
     display: block;
   }
 }
+
 
 
