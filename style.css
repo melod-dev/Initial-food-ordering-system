@@ -204,4 +204,22 @@ main {
   .mobile-only {
     display: flex !important;
   }
+  /* =======================
+   Desktop Menu Shows Cart
+   ======================= */
+@media (max-width: 768px) {
+  /* On mobile, cart inside menu is hidden */
+  main.show-cart-desktop + .cart {
+    display: none !important;
+  }
 }
+
+@media (min-width: 769px) {
+  /* On desktop, cart is always visible when menu is clicked */
+  .cart {
+    display: flex !important;
+  }
+}
+
+}
+
