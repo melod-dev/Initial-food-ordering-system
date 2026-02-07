@@ -152,7 +152,7 @@ main {
 }
 
 /* Mobile view */
-@media(max-width: 600px) {
+@media(max-width: 768px) {
   .container {
     flex-direction: column;
   }
@@ -186,10 +186,18 @@ main {
     gap: 0.2rem;
   }
 /* Show Cart icon on mobile */
+  @media (max-width: 768px) {
   .sidebar .cart-icon {
     display: flex;
   }
+  }
+  /* FORCE hide Cart icon on desktop & large screens */
+@media (min-width: 769px) {
+  .sidebar .cart-icon {
+    display: none !important;
+  }
 }
+
 
 
 
