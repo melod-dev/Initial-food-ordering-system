@@ -1,19 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Food Order</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Kiosk</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Food Menu</h1>
-<div id="menu"></div>
+<div class="container">
 
-<h2>Your Info</h2>
-<input id="name" placeholder="Your Name"><br>
-<textarea id="notes" placeholder="Notes"></textarea><br>
+  <!-- Left Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">🍔 Kiosk</div>
+    <ul class="nav">
+      <li class="active">Menu</li>
+      <li>Orders</li>
+      <li>Settings</li>
+      <li>Logout</li>
+    </ul>
+  </aside>
 
-<button onclick="placeOrder()">Place Order</button>
+  <!-- Main Content -->
+  <main>
+    <!-- Top Bar -->
+    <div class="topbar">
+      <input type="text" placeholder="Search product by name, categories or SKU" id="searchInput">
+      <button class="filter-btn">Filter</button>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="categories">
+      <button class="category active" data-category="Pizza">Pizza</button>
+      <button class="category" data-category="Hot drinks">Hot Drinks</button>
+      <button class="category" data-category="Cold drinks">Cold Drinks</button>
+      <button class="category" data-category="Dessert">Dessert</button>
+      <button class="category" data-category="Burgers">Burgers</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="menu" class="product-grid"></div>
+  </main>
+
+  <!-- Cart Summary -->
+  <aside class="cart">
+    <h2>🛒 Items</h2>
+    <ul id="cartItems"></ul>
+    <div class="cart-summary">
+      <p>Subtotal: ₱<span id="cartSubtotal">0</span></p>
+      <p>Tax(5%): ₱<span id="cartTax">0</span></p>
+      <p>Total: ₱<span id="cartTotal">0</span></p>
+    </div>
+    <button id="printReceipt">Print Receipt</button>
+    <button id="placeOrderBtn">Proceed</button>
+  </aside>
+
+</div>
 
 <script src="script.js"></script>
 </body>
