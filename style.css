@@ -186,10 +186,12 @@ main {
     gap: 0.2rem;
   }
 /* Show Cart icon on mobile */
+  @media (max-width: 768px) {
   .sidebar .cart-icon {
     display: flex;
   }
 }
+
 
 
 
