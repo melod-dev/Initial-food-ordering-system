@@ -22,10 +22,10 @@ body, html {
   width: 70px;
   background: #2a2a2a;       /* gray background */
   display: flex;
-  justify-content: center;    /* center vertically */
-  align-items: center;        /* center horizontally */
+  justify-content: center;    
+  align-items: center;        
   padding: 1rem 0;
-  border-radius: 16px;        /* rounded edges */
+  border-radius: 24px;        /* more rounded */
   margin: 0.5rem;
 }
 
@@ -33,28 +33,31 @@ body, html {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;     /* vertical by default */
+  flex-direction: column;     
   align-items: center;
   gap: 1.5rem;
 }
 
 .sidebar .nav li {
   list-style: none;
-  font-size: 1.6rem; /* icon size */
+  font-size: 1.6rem; 
   cursor: pointer;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 16px;       /* rounded edges for icon background hover */
+  padding: 0.3rem;
+  transition: background 0.2s, color 0.2s;
 }
 
 .sidebar .nav li.active {
   color: orange;
+  background: #333;           /* highlight active with background */
 }
 
-/* Cart icon hidden on desktop */
-.cart-icon {
-  display: none;
+.sidebar .cart-icon {
+  display: none;  
 }
 
 /* ============================= */
@@ -71,7 +74,7 @@ main {
 .topbar input {
   width: 100%;
   padding: 0.5rem 1rem;
-  border-radius: 12px;
+  border-radius: 24px;       /* fully rounded */
   border: none;
   background: #2a2a2a;
   color: #fff;
@@ -81,17 +84,18 @@ main {
 .categories {
   display: flex;
   margin: 1rem 0;
+  gap: 0.5rem;
 }
 
 .category {
-  margin-right: 0.8rem;
   padding: 0.5rem 1.2rem;
-  border-radius: 25px;
+  border-radius: 24px;       /* fully rounded */
   border: none;
   background: #333;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .category.active {
@@ -108,7 +112,7 @@ main {
 
 .product-card {
   background: #2a2a2a;
-  border-radius: 12px;
+  border-radius: 24px;       /* fully rounded */
   padding: 1rem;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -123,9 +127,14 @@ main {
   background: orange;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 12px;
+  border-radius: 24px;       /* fully rounded button */
   cursor: pointer;
   font-weight: bold;
+  transition: background 0.2s;
+}
+
+.product-card button:hover {
+  background: #ff9c00;
 }
 
 /* ============================= */
@@ -138,7 +147,7 @@ main {
   display: flex;
   flex-direction: column;
   border-left: 1px solid #333;
-  border-radius: 12px;
+  border-radius: 24px;       /* fully rounded cart */
 }
 
 .cart ul {
@@ -146,6 +155,17 @@ main {
   padding: 0;
   flex: 1;
   overflow-y: auto;
+  border-radius: 16px;       /* rounded inside */
+}
+
+.cart li {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: #2a2a2a;
+  border-radius: 16px;       /* rounded each item */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cart-summary p {
@@ -153,20 +173,26 @@ main {
   font-weight: bold;
 }
 
+/* Cart buttons */
 .cart button {
   margin-top: 0.5rem;
   padding: 0.7rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 24px;       /* fully rounded */
   cursor: pointer;
   font-weight: bold;
   background: orange;
+  transition: background 0.2s;
+}
+
+.cart button:hover {
+  background: #ff9c00;
 }
 
 /* ============================= */
 /* MOBILE VIEW */
 /* ============================= */
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .container {
     flex-direction: column;
     gap: 0;
@@ -183,10 +209,11 @@ main {
     flex-direction: row;
     justify-content: space-around;
     padding: 0.6rem 0;
-    order: 3; /* moves to bottom */
+    order: 3; 
     position: sticky;
     bottom: 0;
     margin: 0.5rem auto;
+    border-radius: 24px;       /* fully rounded edges for mobile */
   }
 
   .sidebar .nav {
@@ -196,13 +223,13 @@ main {
   }
 
   .sidebar .nav li {
-    flex-direction: column;  /* vertical icons */
+    flex-direction: column;  
     font-size: 1.4rem;
     gap: 0.2rem;
   }
 
-  /* Show cart icon only on mobile */
-  .cart-icon {
+  /* SHOW CART ICON ON MOBILE ONLY */
+  .sidebar .cart-icon {
     display: flex;
   }
 }
