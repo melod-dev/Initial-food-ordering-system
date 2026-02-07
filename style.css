@@ -173,6 +173,10 @@ main {
     margin: 0;
     font-size: 1.5rem;
   }
+/* Show Cart icon on mobile */
+  .sidebar .cart-icon {
+    display: block;
+  }
 }
 
 
