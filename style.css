@@ -52,6 +52,12 @@ body, html {
    height: 44px;
    border-radius:50%;
   transition: background 0.2s, color 0.2s;
+
+  transform: scale(1);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 /*active: white icon inside orange circle (DESKTOP) */
 .sidebar .nav li.active {
@@ -61,8 +67,13 @@ body, html {
 /*hover effect (desktop)*/
 .sidebar .nav li:hover {
    background: rgba(255, 152, 0, 0.15);
-  color: #fff;
+   color: #fff;
+   transform: scale(1.15);
 }
+.sidebar .nav li:active {
+  transform: scale(0.95);
+}
+
 
 /* Hide mobile-only icons on desktop */
 .mobile-only {
@@ -236,4 +247,5 @@ main {
     display: flex !important;
   }
 }
+
 
