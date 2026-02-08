@@ -237,6 +237,10 @@ main {
    .mobile-logo {
     display: flex;
      }
+   /* Hide sidebar logo in mobile bottom bar */
+.sidebar-logo {
+  display: none;
+}
   .container {
     flex-direction: column;
   }
@@ -295,6 +299,7 @@ main {
     display: flex !important;
   }
 }
+
 
 
 
