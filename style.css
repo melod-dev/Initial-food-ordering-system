@@ -86,10 +86,10 @@ body, html {
   width: 48px;
   height: 48px;
   margin-bottom: 1.5rem;   /* pushes icons down */
-  display: fixed;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: #333;
   border-radius: 50%;      /* circle */
 }
 
@@ -299,6 +299,7 @@ main {
     display: flex !important;
   }
 }
+
 
 
 
